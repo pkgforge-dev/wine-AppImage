@@ -35,7 +35,6 @@ kek=.$(tr -dc 'A-Za-z0-9_=-' < /dev/urandom | head -c 10)
 rm -f ./AppDir/lib/wine/x86_64-unix/wine
 cp /usr/lib/wine/x86_64-unix/wine ./AppDir/lib/wine/x86_64-unix/wine
 patchelf --set-interpreter /tmp/"$kek" ./AppDir/lib/wine/x86_64-unix/wine
-patchelf --set-interpreter /tmp/"$kek" ./AppDir/shared/bin/wineserver
 
 cat <<EOF > ./AppDir/bin/random-linker.src.hook
 #!/bin/sh
@@ -43,6 +42,16 @@ cp -f "\$APPDIR"/shared/lib/ld-linux*.so* /tmp/"$kek"
 export LD_LIBRARY_PATH="\$APPDIR/lib:\$APPDIR/lib/wine/x86_64-unix"
 EOF
 chmod +x ./AppDir/bin/*.hook
+
+# lib/wine/x86_64-unix/wine will try to execute a relative ../../bin/wineserver
+# which resolves to shared/bin/wineserver and it is wrong
+# so we have to make AppDir/shared/lib the symlink and AppDir/lib the real directory
+# that way ../../bin/wineserver resolves to the sharun hardlink
+if [ -L ./AppDir/lib ]; then
+	rm -f ./AppDir/lib
+	mv ./AppDir/shared/lib ./AppDir
+	ln -sr ./AppDir/lib ./AppDir/shared
+fi
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
