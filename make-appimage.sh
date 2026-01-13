@@ -12,20 +12,24 @@ export ICON=https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-ico
 export DESKTOP=/usr/share/applications/wine.desktop
 export APPNAME=wine
 export ANYLINUX_LIB=1
+export DEPLOY_SDL=1
 
 # Deploy dependencies
 quick-sharun \
-	/usr/bin/wine*    \
-	/usr/lib/wine     \
-	/usr/bin/msidb    \
-	/usr/bin/msiexec  \
-	/usr/bin/notepad  \
-	/usr/bin/regedit  \
-	/usr/binregsvr32  \
-	/usr/bin/widl     \
-	/usr/bin/wmc      \
-	/usr/bin/wrc      \
-	/usr/bin/function_grep.pl
+	/usr/bin/wine*            \
+	/usr/lib/wine             \
+	/usr/bin/msidb            \
+	/usr/bin/msiexec          \
+	/usr/bin/notepad          \
+	/usr/bin/regedit          \
+	/usr/binregsvr32          \
+	/usr/bin/widl             \
+	/usr/bin/wmc              \
+	/usr/bin/wrc              \
+	/usr/bin/function_grep.pl \
+	/usr/lib/libfreetype.so*  \
+	/usr/lib/libavcodec.so*
+	
 
 # alright here the pain starts
 ln -sr ./AppDir/lib/wine/x86_64-unix/*.so* ./AppDir/bin
