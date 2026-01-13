@@ -13,6 +13,7 @@ export DESKTOP=/usr/share/applications/wine.desktop
 export APPNAME=wine
 export ANYLINUX_LIB=1
 export DEPLOY_SDL=1
+export DEPLOY_PIPEWIRE=1
 
 # Deploy dependencies
 quick-sharun \
