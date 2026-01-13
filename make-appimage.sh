@@ -3,16 +3,27 @@
 set -eu
 
 ARCH=$(uname -m)
-VERSION=$(pacman -Q PACKAGENAME | awk '{print $2; exit}') # example command to get version of application here
+VERSION=$(pacman -Q wine | awk '{print $2; exit}') # example command to get version of application here
 export ARCH VERSION
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.bg.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
-export ICON=PATH_OR_URL_TO_ICON
-export DESKTOP=PATH_OR_URL_TO_DESKTOP_ENTRY
+export ICON=https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/bcf6aa9582f676e1c93d0022319e6055cd1f2de2/Papirus/64x64/apps/wine.svg
+export DESKTOP=/usr/share/applications/wine.desktop
 
 # Deploy dependencies
-quick-sharun /PATH/TO/BINARY_AND_LIBRARIES_HERE
+quick-sharun \
+	/usr/bin/wine*    \
+	/usr/lib/wine     \
+	/usr/bin/msidb    \
+	/usr/bin/msiexec  \
+	/usr/bin/notepad  \
+	/usr/bin/regedit  \
+	/usr/binregsvr32  \
+	/usr/bin/widl     \
+	/usr/bin/wmc      \
+	/usr/bin/wrc      \
+	/usr/bin/function_grep.pl
 
 # Additional changes can be done in between here
 
