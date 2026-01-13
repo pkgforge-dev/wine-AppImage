@@ -6,7 +6,7 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm wine
+pacman -Syu --noconfirm wine patchelf
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
