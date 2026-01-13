@@ -35,5 +35,11 @@ rm -f ./AppDir/lib/wine/x86_64-unix/wine
 patchelf --set-interpreter /tmp/"$kek" ./AppDir/lib/wine/x86_64-unix/wine
 patchelf --set-rpath '$ORIGIN:$ORIGIN/../../../lib' ./AppDir/lib/wine/x86_64-unix/wine
 
+cat <<EOF > ./AppDir/bin/random-linker.hook
+#!/bin/sh
+cp -f "\$APPDIR"/shared/lib/ld-linux*.so* /tmp/"$kek"
+EOF
+chmod +x ./AppDir/bin/*.hook
+
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
