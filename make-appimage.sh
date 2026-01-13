@@ -32,6 +32,7 @@ ln -sr ./AppDir/lib/wine/x86_64-unix/*.so* ./AppDir/bin
 # this gets broken by sharun somehow
 kek=.$(tr -dc 'A-Za-z0-9_=-' < /dev/urandom | head -c 10)
 rm -f ./AppDir/lib/wine/x86_64-unix/wine
+cp /usr/lib/wine/x86_64-unix/wine ./AppDir/lib/wine/x86_64-unix/wine
 patchelf --set-interpreter /tmp/"$kek" ./AppDir/lib/wine/x86_64-unix/wine
 patchelf --set-rpath '$ORIGIN:$ORIGIN/../../../lib' ./AppDir/lib/wine/x86_64-unix/wine
 
