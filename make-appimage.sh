@@ -10,6 +10,7 @@ export ADD_HOOKS="self-updater.bg.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
 export ICON=https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/bcf6aa9582f676e1c93d0022319e6055cd1f2de2/Papirus/64x64/apps/wine.svg
 export DESKTOP=/usr/share/applications/wine.desktop
+export APPNAME=wine
 
 # Deploy dependencies
 quick-sharun \
@@ -25,7 +26,8 @@ quick-sharun \
 	/usr/bin/wrc      \
 	/usr/bin/function_grep.pl
 
-# Additional changes can be done in between here
+# alright here the pain starts
+ln -sr ./AppDir/lib/wine/x86_64-unix/*.so* ./AppDir/bin
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
