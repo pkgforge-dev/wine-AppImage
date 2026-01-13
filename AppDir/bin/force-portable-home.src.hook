@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# wine ignores the HOME env var, which means --appimage-portable-home does not work normally
+export WINEPREFIX="${WINEPREFIX:-$HOME/.wine}"
