@@ -14,6 +14,7 @@ export APPNAME=wine
 export ANYLINUX_LIB=1
 export DEPLOY_SDL=1
 export DEPLOY_PIPEWIRE=1
+export DEPLOY_VULKAN=1
 
 # Deploy dependencies
 quick-sharun \
