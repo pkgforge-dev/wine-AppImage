@@ -34,11 +34,11 @@ kek=.$(tr -dc 'A-Za-z0-9_=-' < /dev/urandom | head -c 10)
 rm -f ./AppDir/lib/wine/x86_64-unix/wine
 cp /usr/lib/wine/x86_64-unix/wine ./AppDir/lib/wine/x86_64-unix/wine
 patchelf --set-interpreter /tmp/"$kek" ./AppDir/lib/wine/x86_64-unix/wine
-patchelf --set-rpath '$ORIGIN:$ORIGIN/../../../lib' ./AppDir/lib/wine/x86_64-unix/wine
 
-cat <<EOF > ./AppDir/bin/random-linker.hook
+cat <<EOF > ./AppDir/bin/random-linker.src.hook
 #!/bin/sh
 cp -f "\$APPDIR"/shared/lib/ld-linux*.so* /tmp/"$kek"
+export LD_LIBRARY_PATH="\$APPDIR/lib:\$APPDIR/lib/wine/x86_64-unix"
 EOF
 chmod +x ./AppDir/bin/*.hook
 
