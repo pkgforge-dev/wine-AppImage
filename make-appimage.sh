@@ -24,7 +24,7 @@ quick-sharun \
 	/usr/bin/msiexec          \
 	/usr/bin/notepad          \
 	/usr/bin/regedit          \
-	/usr/binregsvr32          \
+	/usr/bin/regsvr32         \
 	/usr/bin/widl             \
 	/usr/bin/wmc              \
 	/usr/bin/wrc              \
