@@ -35,6 +35,7 @@ kek=.$(tr -dc 'A-Za-z0-9_=-' < /dev/urandom | head -c 10)
 rm -f ./AppDir/lib/wine/x86_64-unix/wine
 cp /usr/lib/wine/x86_64-unix/wine ./AppDir/lib/wine/x86_64-unix/wine
 patchelf --set-interpreter /tmp/"$kek" ./AppDir/lib/wine/x86_64-unix/wine
+patchelf --set-interpreter /tmp/"$kek" ./AppDir/shared/bin/wineserver
 
 cat <<EOF > ./AppDir/bin/random-linker.src.hook
 #!/bin/sh
