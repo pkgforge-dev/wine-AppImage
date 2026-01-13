@@ -11,6 +11,7 @@ export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}
 export ICON=https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/bcf6aa9582f676e1c93d0022319e6055cd1f2de2/Papirus/64x64/apps/wine.svg
 export DESKTOP=/usr/share/applications/wine.desktop
 export APPNAME=wine
+export ANYLINUX_LIB=1
 
 # Deploy dependencies
 quick-sharun \
