@@ -46,14 +46,15 @@ patchelf --add-needed anylinux.so ./AppDir/shared/lib/wine/x86_64-unix/wine
 cat <<EOF > ./AppDir/bin/random-linker.src.hook
 #!/bin/sh
 cp -f "\$APPDIR"/shared/lib/ld-linux*.so* /tmp/"$kek"
-export LD_LIBRARY_PATH="\$APPDIR/lib:\$APPDIR/lib/wine/x86_64-unix"
 EOF
 chmod +x ./AppDir/bin/*.hook
+
+echo 'LD_LIBRARY_PATH=${APPDIR}/lib:${APPDIR}/lib/wine/x86_64-unix' >> ./AppDir/.env
 
 # because of this LD_LIBRARY_PATH, winetricks will get the variable
 # other binaries unset the var before execve by using anylinux.so
 # but winescripts is a shell script, so we have to unset the var manually in it
-sed -i -e '1 a unset LD_LIBRARY_PATH' ./AppDir/bin/winetricks
+#sed -i -e '1 a unset LD_LIBRARY_PATH' ./AppDir/bin/winetricks
 
 # lib/wine/x86_64-unix/wine will try to execute a relative ../../bin/wineserver
 # which resolves to shared/bin/wineserver and it is wrong
