@@ -50,6 +50,11 @@ export LD_LIBRARY_PATH="\$APPDIR/lib:\$APPDIR/lib/wine/x86_64-unix"
 EOF
 chmod +x ./AppDir/bin/*.hook
 
+# because of this LD_LIBRARY_PATH, winetricks will get the variable
+# other binaries unset the var before execve by using anylinux.so
+# but winescripts is a shell script, so we have to unset the var manually in it
+sed -i -e '1 a unset LD_LIBRARY_PATH' ./AppDir/bin/winetricks
+
 # lib/wine/x86_64-unix/wine will try to execute a relative ../../bin/wineserver
 # which resolves to shared/bin/wineserver and it is wrong
 # so we have to make AppDir/shared/lib the symlink and AppDir/lib the real directory
