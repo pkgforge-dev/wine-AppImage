@@ -32,7 +32,6 @@ quick-sharun \
 	/usr/bin/function_grep.pl \
 	/usr/lib/libfreetype.so*  \
 	/usr/lib/libavcodec.so*
-	
 
 # alright here the pain starts
 ln -sr ./AppDir/lib/wine/x86_64-unix/*.so* ./AppDir/bin
@@ -60,6 +59,10 @@ if [ -L ./AppDir/lib ]; then
 	mv ./AppDir/shared/lib ./AppDir
 	ln -sr ./AppDir/lib ./AppDir/shared
 fi
+
+# remove wine static libs
+find ./AppDir/lib/ -type f -name '*.a'
+find ./AppDir/lib/ -type f -name '*.a' -delete
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
