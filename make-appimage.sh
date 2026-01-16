@@ -50,7 +50,7 @@ EOF
 chmod +x ./AppDir/bin/*.hook
 
 # Set the lib path to also use wine libs
-echo 'LD_LIBRARY_PATH=${APPDIR}/lib:${APPDIR}/lib/wine/x86_64-unix' >> ./AppDir/.env
+echo 'LD_LIBRARY_PATH=${APPDIR}/lib:${APPDIR}/lib/pulseaudio:${APPDIR}/lib/alsa-lib:${APPDIR}/lib/wine/x86_64-unix' >> ./AppDir/.env
 
 # lib/wine/x86_64-unix/wine will try to execute a relative ../../bin/wineserver
 # which resolves to shared/bin/wineserver and it is wrong
