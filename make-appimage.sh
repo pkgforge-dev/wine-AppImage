@@ -33,6 +33,10 @@ quick-sharun \
 	/usr/lib/libfreetype.so*  \
 	/usr/lib/libavcodec.so*
 
+# Ship zenity-rs 
+wget "https://github.com/QaidVoid/zenity-rs/releases/download/v0.1.0/zenity-rs-$ARCH-linux" -O ./AppDir/bin/zenity
+chmod +x ./AppDir/bin/zenity
+
 # alright here the pain starts
 ln -sr ./AppDir/lib/wine/x86_64-unix/*.so* ./AppDir/bin
 
