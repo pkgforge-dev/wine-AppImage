@@ -1,3 +1,5 @@
+<div align="center">
+
 # wine AppImage 🐧
 
 [![GitHub Downloads](https://img.shields.io/github/downloads/pkgforge-dev/wine-AppImage/total?logo=github&label=GitHub%20Downloads)](https://github.com/pkgforge-dev/wine-AppImage/releases/latest)
@@ -8,7 +10,11 @@
   <img src="https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/Papirus/64x64/apps/wine.svg" width="128" />
 </p>
 
-* [Upstream URL](https://www.winehq.org/)
+| Latest Stable Release | Upstream URL |
+| :---: | :---: |
+| [Click here](https://github.com/pkgforge-dev/wine-AppImage/releases/latest) | [Click here](https://www.winehq.org/) |
+
+</div>
 
 ---
 
