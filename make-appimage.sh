@@ -37,6 +37,10 @@ quick-sharun \
 wget --retry-connrefused --tries=30 https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O ./AppDir/bin/winetricks
 chmod +x ./AppDir/bin/winetricks
 
+# Install zenity-rs
+wget --retry-connrefused --tries=30 "https://github.com/QaidVoid/zenity-rs/releases/download/v0.1.11/zenity-rs-$ARCH-linux" -O ./AppDir/bin/zenity
+chmod +x ./AppDir/bin/zenity
+
 # alright here the pain starts
 ln -sr ./AppDir/lib/wine/x86_64-unix/*.so* ./AppDir/bin
 
