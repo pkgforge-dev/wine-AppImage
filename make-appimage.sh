@@ -31,7 +31,8 @@ quick-sharun \
 	/usr/bin/wrc              \
 	/usr/bin/function_grep.pl \
 	/usr/lib/libfreetype.so*  \
-	/usr/lib/libavcodec.so*
+	/usr/lib/libavcodec.so*	  \
+	/usr/bin/zenity
 
 # Install latest winetricks
 wget --retry-connrefused --tries=30 https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O ./AppDir/bin/winetricks

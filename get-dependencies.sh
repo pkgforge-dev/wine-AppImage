@@ -17,6 +17,6 @@ if [ "$ARCH" = 'x86_64' ]; then
 fi
 
 # Comment this out if you need an AUR package
-#make-aur-package PACKAGENAME
+make-aur-package zenity-rs-bin
 
 # If the application needs to be manually built that has to be done down here
