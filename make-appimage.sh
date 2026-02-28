@@ -31,6 +31,8 @@ quick-sharun \
 	/usr/bin/wrc              \
 	/usr/bin/function_grep.pl \
 	/usr/lib/libfreetype.so*  \
+	/usr/lib/libharfbuzz*.so* \
+    /usr/lib/libgraphite*.so* \
 	/usr/lib/libavcodec.so*	  \
 	/usr/bin/zenity
 
