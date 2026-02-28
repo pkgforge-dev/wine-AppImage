@@ -36,9 +36,6 @@ WINEPREFIX=/tmp/wine quick-sharun \
     /usr/lib/libgraphite*     \
 	/usr/lib/libavcodec.so*	  \
 	/usr/bin/zenity
-# Test real app so more libs can be deployed if missing
-wget --retry-connrefused --tries=30 https://github.com/torrent-file-editor/torrent-file-editor/releases/download/v1.0.0/torrent-file-editor-1.0.0-x64.exe -O /tmp/test-app.exe
-WINEPREFIX=/tmp/wine quick-sharun /usr/bin/wine -- /tmp/test-app.exe
 
 # Install latest winetricks
 wget --retry-connrefused --tries=30 https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O ./AppDir/bin/winetricks
