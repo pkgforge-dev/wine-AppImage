@@ -30,6 +30,7 @@ WINEPREFIX=/tmp/wine quick-sharun \
 	/usr/bin/wmc              \
 	/usr/bin/wrc              \
 	/usr/bin/function_grep.pl \
+	/usr/bin/cabextract       \
 	/usr/lib/libfreetype.so*  \
 	/usr/lib/libharfbuzz*     \
     /usr/lib/libgraphite*     \
