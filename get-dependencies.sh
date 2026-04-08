@@ -6,7 +6,7 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm wine cabextract patchelf sdl2 pipewire-audio pipewire-jack harfbuzz
+pacman -Syu --noconfirm wine cabextract sdl2 pipewire-audio pipewire-jack harfbuzz
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
