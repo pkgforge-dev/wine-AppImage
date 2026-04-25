@@ -14,6 +14,8 @@
 | :---: | :---: |
 | [Click here](https://github.com/pkgforge-dev/wine-AppImage/releases/latest) | [Click here](https://www.winehq.org/) |
 
+**winetricks is also included.**
+
 </div>
 
 ---
