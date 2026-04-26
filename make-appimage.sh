@@ -35,6 +35,7 @@ WINEPREFIX=/tmp/wine quick-sharun \
 	/usr/lib/libharfbuzz*     \
     /usr/lib/libgraphite*     \
 	/usr/lib/libavcodec.so*	  \
+	/usr/bin/wget             \
 	/usr/bin/zenity
 
 # Install latest winetricks
