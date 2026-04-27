@@ -13,29 +13,36 @@ export DESKTOP=/usr/share/applications/wine.desktop
 export APPNAME=wine
 export DEPLOY_SDL=1
 export DEPLOY_PIPEWIRE=1
+export DEPLOY_GSTREAMER=1
 export DEPLOY_VULKAN=1
 export DEPLOY_OPENGL=1
 
 # Deploy dependencies
 mkdir -p /tmp/wine
 WINEPREFIX=/tmp/wine quick-sharun \
-	/usr/bin/wine*            \
-	/usr/lib/wine             \
-	/usr/bin/msidb            \
-	/usr/bin/msiexec          \
-	/usr/bin/notepad          \
-	/usr/bin/regedit          \
-	/usr/bin/regsvr32         \
-	/usr/bin/widl             \
-	/usr/bin/wmc              \
-	/usr/bin/wrc              \
-	/usr/bin/function_grep.pl \
-	/usr/bin/cabextract       \
-	/usr/lib/libfreetype.so*  \
-	/usr/lib/libharfbuzz*     \
-    /usr/lib/libgraphite*     \
-	/usr/lib/libavcodec.so*	  \
-	/usr/bin/wget             \
+	/usr/bin/wine*             \
+	/usr/lib/wine              \
+	/usr/bin/msidb             \
+	/usr/bin/msiexec           \
+	/usr/bin/notepad           \
+	/usr/bin/regedit           \
+	/usr/bin/regsvr32          \
+	/usr/bin/widl              \
+	/usr/bin/wmc               \
+	/usr/bin/wrc               \
+	/usr/bin/function_grep.pl  \
+	/usr/bin/cabextract        \
+	/usr/lib/libfreetype.so*   \
+	/usr/lib/libharfbuzz*      \
+    /usr/lib/libgraphite*      \
+	/usr/lib/libavcodec.so*	   \
+	/usr/lib/libavdevice.so*   \
+	/usr/lib/libavfilter.so*   \
+	/usr/lib/libavformat.so*   \
+	/usr/lib/libavutil.so*     \
+	/usr/lib/libswresample.so* \
+	/usr/lib/libswscale.so*    \
+	/usr/bin/wget              \
 	/usr/bin/zenity
 
 # Install latest winetricks
